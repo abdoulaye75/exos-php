@@ -15,12 +15,16 @@
 				$products = array_diff($products, array(".", "..","index.php", "chaussures.jpeg", "sac.jpeg", "kettleball.jpeg")); /* correspond aux fichiers et aux images que j'ai choisi personnellement*/
 
 				foreach ($products as $product) {
-					echo '<li><a href="index.php?dossier='. $product .' "> '. $product .' </a> </li>'; /* une boucle foreach pour lister tous les fichiers du répertoire courant */
+					echo '<li><a href="index.php?dossier='. $product .' "> '. $product .' </a> </li>
+					<a href="panier.php?produit='. $product .' "> Ajouter au panier </a></li>'; /* une boucle foreach pour lister tous les fichiers du répertoire courant */
 				}
 
-				include "../boutique/" . $_GET['dossier']; // affiche le contenu du fichier sur lequel on a cliqué
+				
 			 ?>
 		</ul>
+		<?php
+			include "../boutique/" . $_GET['dossier']; // le contenu de chaque fiche produit s'affiche en dessous de la liste
+		?>
 	</main>
 
 </body>
